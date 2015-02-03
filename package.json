@@ -4,13 +4,13 @@
   "description": "Pull wordpress posts into your roots project",
   "main": "lib",
   "dependencies": {
-    "rest": "1.3.x"
+    "rest": "1.x"
   },
   "devDependencies": {
     "chai": "1.x",
     "chai-as-promised": "4.x",
     "chai-fs": "0.1.x",
-    "coffee-script": "1.7.x",
+    "coffee-script": "1.9.x",
     "coveralls": "2.x",
     "istanbul": "0.3.x",
     "mocha": "2.x",
