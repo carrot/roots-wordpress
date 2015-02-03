@@ -1,7 +1,7 @@
 Roots Wordpress
 ================
 
-[![npm](https://badge.fury.io/js/roots-wordpress.svg?style=flat)](http://badge.fury.io/js/roots-wordpress) [![tests](https://badge.fury.io/travis/carrot/roots-wordpress/master.svg?style=flat)](https://travis-ci.org/carrot/roots-wordpress) [![dependencies](https://badge.fury.io/gemnasium/carrot/roots-wordpress.svg?style=flat)](https://gemnasium.com/carrot/roots-wordpress) [![Coverage Status](https://img.shields.io/coveralls/carrot/roots-wordpress.svg?style=flat)](https://coveralls.io/r/carrot/roots-wordpress?branch=master)
+[![npm](https://img.shields.io/npm/v/roots-wordpress.svg?style=flat)](http://badge.fury.io/js/roots-wordpress) [![tests](https://img.shields.io/travis/carrot/roots-wordpress/master.svg?style=flat)](https://travis-ci.org/carrot/roots-wordpress) [![dependencies](https://img.shields.io/gemnasium/carrot/roots-wordpress.svg?style=flat)](https://gemnasium.com/carrot/roots-wordpress) [![Coverage Status](https://img.shields.io/coveralls/carrot/roots-wordpress.svg?style=flat)](https://coveralls.io/r/carrot/roots-wordpress?branch=master)
 
 Pull wordpress posts into your roots project.
 
