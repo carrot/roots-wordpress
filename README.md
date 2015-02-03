@@ -25,7 +25,7 @@ Pull wordpress posts into your roots project.
 - Make sure you have a wordpress installation up and running. This can be on wordpress.com, or self-hosted, anything.
 - Install the [Jetpack Plugin](https://wordpress.org/plugins/jetpack/).
 - Activate Jetpack on the plugins page by signing in with a wordpress.com account
-- Go to the Jetpack settings page, find the ["JSON API" module](), and activate it
+- Go to the Jetpack settings page, find the ["JSON API" module](https://s3.amazonaws.com/f.cl.ly/items/2Y391I1D321L3k3d0A2X/Screen%20Shot%202015-02-03%20at%2012.30.50%20PM.png), and activate it
 - Back in your roots project, load in this extension, and configure it with your wordpress site's base url. It can even be an IP address, and there's no need for `http://`.
 - Your wordpress posts will now be accessible via a `wordpress` local available in all of your views.
 
