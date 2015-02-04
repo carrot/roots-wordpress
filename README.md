@@ -20,9 +20,8 @@ Pull wordpress posts into your roots project.
     extensions: [
       wordpress
         site: 'my-wordpress-site.com'
-        post_types: [
+        post_types:
           posts: { template: 'views/_single_post.jade' }
-        ]
     ]
   ```
 
@@ -48,11 +47,10 @@ All other options you can pass directly mirror those that [wordpress' api provid
 ```coffee
 wordpress
   site: 'example.com'
-  post_types: [
+  post_types:
     portfolio:
       template: 'views/_portfolio_single.jade'
       category: 'new'
-  ]
 ```
 
 This snippet would pull any items in the portfolio post type that are in the `new` category into `wordpress.portfolio` in your locals, and render out a single view using the specific template for each portfolio item in `public/portfolio/{wordpress-slug}.html`.
