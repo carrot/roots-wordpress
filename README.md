@@ -21,7 +21,7 @@ Pull wordpress posts into your roots project.
       wordpress
         site: 'my-wordpress-site.com'
         post_types:
-          posts: { template: 'views/_single_post.jade' }
+          post: { template: 'views/_single_post.jade' }
     ]
   ```
 
@@ -54,6 +54,16 @@ wordpress
 ```
 
 This snippet would pull any items in the portfolio post type that are in the `new` category into `wordpress.portfolio` in your locals, and render out a single view using the specific template for each portfolio item in `public/portfolio/{wordpress-slug}.html`.
+
+Within that template, all the data for your post type will be available under the `post` local. The local always remains the same no matter the content type for consistency, it's always `post`.
+
+If this seems confusing, feel free to check the `test/fixtures` folder for a couple working examples!
+
+### Using Custom Post Types
+
+If you want to create and consume a custom post type from wordpress, only a small adjustment is needed. First, you need to work some PHP magic within wordpress to create your post type in the first place. Then you'll need to add the `rest_api_allowed_post_types` filter, more info on this process can be found [here](https://developer.wordpress.com/2013/04/26/custom-post-type-and-metadata-support-in-the-rest-api/).
+
+Once you have done this, you can just add the name of the post type to `post_types`, pass any options you need, and you should be all set!
 
 ### License & Contributing
 
