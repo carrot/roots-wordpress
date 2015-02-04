@@ -1,6 +1,6 @@
 {
   "name": "roots-wordpress",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Pull wordpress posts into your roots project",
   "main": "lib",
   "dependencies": {
