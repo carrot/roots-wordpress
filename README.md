@@ -38,7 +38,7 @@ Pull wordpress posts into your roots project.
 
 The `site` option accepts the domain of your wordpress site. You can include `http://` at the beginning or not, your choice. It is not needed. Most of the configuration is in the `post_types` though, where you are able to configure how this extension makes calls to wordpress and organizes your content once it's back in roots.
 
-Wordpress can have a number of different "post types" -- the default is that it has just one, `posts`. You can add custom post types with a bit of PHP code, and wordpress also has an automatically configured `portfolio` post type which can be enabled through the settings.
+Wordpress can have a number of different "post types" -- the default is that it has just one, `post`. You can add custom post types with a bit of PHP code, and wordpress also has an automatically configured `portfolio` post type which can be enabled through the settings.
 
 In the `post_types` array, `roots-wordpress` expects one or more objects, the key being the name of the post type and the value being an object full of configuration settings. If you pass a `template` value, each post from that post type will be rendered into the specified template named by the `slug` property on the response in a folder named after the post type, and a `_url` property will be added to each post pointing to the path of the single view.
 
