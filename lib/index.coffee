@@ -8,6 +8,8 @@ module.exports = (opts = {}) ->
   if not opts.site then throw new Error('You must supply a site url or id')
   if not opts.post_types then opts.post_types = { post: {} }
 
+  cache = null
+
   class RootsWordpress
     constructor: (@roots) ->
       @util = new RootsUtil(@roots)
@@ -17,13 +19,17 @@ module.exports = (opts = {}) ->
       @roots.config.locals ?= {}
       @roots.config.locals.wordpress = {}
 
+      if cache then return @roots.config.locals.wordpress = cache
+
       all = for type, config of opts.post_types
         request(opts.site, type, config)
           .then(render_single_views.bind(@, config, type))
           .then(add_urls_to_posts)
           .then(add_posts_to_locals.bind(@, type))
 
-      W.all(all)
+      W.all(all).then =>
+        if opts.cache is false then return
+        cache = @roots.config.locals.wordpress
 
 # private
 
