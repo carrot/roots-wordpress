@@ -43,7 +43,7 @@ render_single_views = (config, type, res) ->
     compiler = _.find @roots.config.compilers, (c) ->
       _.contains(c.extensions, path.extname(tpl).substring(1))
 
-    compiler.renderFile(tpl, locals)
+    compiler.renderFile(tpl, _.deepClone(locals))
       .then((res) => @util.write(output, res.result))
       .yield(output)
 
