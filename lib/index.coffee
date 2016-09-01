@@ -38,7 +38,7 @@ render_single_views = (config, type, res) ->
 
   W.map posts, (p) =>
     tpl = path.join(@roots.root, config.template)
-    locals   = _.merge(@roots.config.locals, post: p)
+    locals   = _.merge({}, @roots.config.locals, post: p)
     output = "#{type}/#{p.slug}.html"
     compiler = _.find @roots.config.compilers, (c) ->
       _.contains(c.extensions, path.extname(tpl).substring(1))
