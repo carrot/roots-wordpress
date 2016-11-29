@@ -37,9 +37,10 @@ render_single_views = (config, type, res) ->
   if not config.template then return { urls: [], posts: posts }
 
   W.map posts, (p) =>
+    directory = if config.directory then config.directory else type
     tpl = path.join(@roots.root, config.template)
     locals   = _.merge({}, @roots.config.locals, post: p)
-    output = "#{type}/#{p.slug}.html"
+    output = "#{directory}/#{p.slug}.html"
     compiler = _.find @roots.config.compilers, (c) ->
       _.contains(c.extensions, path.extname(tpl).substring(1))
 

@@ -40,7 +40,7 @@ The `site` option accepts the domain of your wordpress site. You can include `ht
 
 Wordpress can have a number of different "post types" -- the default is that it has just one, `post`. You can add custom post types with a bit of PHP code, and wordpress also has an automatically configured `portfolio` post type which can be enabled through the settings.
 
-In the `post_types` array, `roots-wordpress` expects one or more objects, the key being the name of the post type and the value being an object full of configuration settings. If you pass a `template` value, each post from that post type will be rendered into the specified template named by the `slug` property on the response in a folder named after the post type, and a `_url` property will be added to each post pointing to the path of the single view.
+In the `post_types` array, `roots-wordpress` expects one or more objects, the key being the name of the post type and the value being an object full of configuration settings. If you pass a `template` value, each post from that post type will be rendered into the specified template named by the `slug` property on the response in a folder named after the post type, and a `_url` property will be added to each post pointing to the path of the single view. If you pass a `directory` value, each post will use the value as the path to the rendered node, If no `directory` is set then it will use the post type as the path.
 
 All other options you can pass directly mirror those that [wordpress' api provides](https://developer.wordpress.com/docs/api/1/get/sites/%24site/posts/). Any of the options in the "Query Parameters" section can be passed in to any post type's configuration object and they will be applied directly to that request. So, for example:
 
