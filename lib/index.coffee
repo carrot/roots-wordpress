@@ -40,13 +40,15 @@ render_single_views = (config, type, res) ->
     directory = if config.directory then config.directory else type
     tpl = path.join(@roots.root, config.template)
     locals   = _.merge({}, @roots.config.locals, post: p)
-    output = "#{directory}/#{p.slug}.html"
+    extension = if typeof @roots.config.server == 'object' && @roots.config.server.clean_urls then '' else '.html'
+    outputFile = "#{directory}/#{p.slug}.html"
+    outputLink = "#{directory}/#{p.slug}#{extension}"
     compiler = _.find @roots.config.compilers, (c) ->
       _.contains(c.extensions, path.extname(tpl).substring(1))
 
     compiler.renderFile(tpl, _.cloneDeep(locals))
-      .then((res) => @util.write(output, res.result))
-      .yield(output)
+      .then((res) => @util.write(outputFile, res.result))
+      .yield(outputLink)
 
   .then (urls) -> { urls: urls, posts: posts }
 
