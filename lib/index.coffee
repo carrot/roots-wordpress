@@ -3,7 +3,7 @@ W         = require 'when'
 RootsUtil = require 'roots-util'
 merge     = require 'lodash.merge'
 find      = require 'lodash.find'
-cloneDeep = require 'lodash.cloneDeep'
+cloneDeep = require 'lodash.clonedeep'
 includes  = require 'lodash.includes'
 path      = require 'path'
 
