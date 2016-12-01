@@ -1,7 +1,10 @@
 API       = require './api'
 W         = require 'when'
 RootsUtil = require 'roots-util'
-_         = require 'lodash'
+merge     = require 'lodash.merge'
+find      = require 'lodash.find'
+cloneDeep = require 'lodash.cloneDeep'
+includes  = require 'lodash.includes'
 path      = require 'path'
 
 module.exports = (opts = {}) ->
@@ -28,8 +31,9 @@ module.exports = (opts = {}) ->
 # private
 
 request = (site, type, config) ->
-  params = _.merge(config, type: type)
-  API(path: "#{site}/posts", params: params)
+  params = merge({}, config, type: type)
+  delete params.template
+  API({ path: "#{site}/posts", params: params })
 
 render_single_views = (config, type, res) ->
   posts = res.entity.posts
@@ -39,14 +43,14 @@ render_single_views = (config, type, res) ->
   W.map posts, (p) =>
     directory = if config.directory then config.directory else type
     tpl = path.join(@roots.root, config.template)
-    locals   = _.merge({}, @roots.config.locals, post: p)
+    locals   = merge({}, @roots.config.locals, post: p)
     extension = if typeof @roots.config.server == 'object' && @roots.config.server.clean_urls then '' else '.html'
     outputFile = "#{directory}/#{p.slug}.html"
     outputLink = "#{directory}/#{p.slug}#{extension}"
-    compiler = _.find @roots.config.compilers, (c) ->
-      _.contains(c.extensions, path.extname(tpl).substring(1))
+    compiler = find @roots.config.compilers, (c) ->
+      includes(c.extensions, path.extname(tpl).substring(1))
 
-    compiler.renderFile(tpl, _.cloneDeep(locals))
+    compiler.renderFile(tpl, cloneDeep(locals))
       .then((res) => @util.write(outputFile, res.result))
       .yield(outputLink)
 

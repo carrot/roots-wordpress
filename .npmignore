@@ -3,3 +3,4 @@ test
 .travis.yml
 contributing.md
 Makefile
+yarn.lock
