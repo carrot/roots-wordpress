@@ -1,7 +1,7 @@
 {
   "name": "roots-wordpress",
   "description": "Pull wordpress posts into your roots project",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "author": "Jeff Escalante",
   "bugs": {
     "url": "https://github.com/carrot/roots-wordpress/issues"
